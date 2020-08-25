@@ -3,15 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { AccountActions } from '../store/actions/account';
 import AppBar from '../components/AppBar';
+import { Redirect } from 'react-router-dom';
 
 const AppPage = (props) => {
   const {
-    fetchCurrentUser, approutes
+    fetchCurrentUser, approutes, authenticated
   } = props;
 
   useEffect(() => {
     fetchCurrentUser();
   }, [fetchCurrentUser]);
+
+  if (!authenticated) {
+    return <Redirect to="/login" />
+  }
+
 
   const renderPage = () => {
     return (
@@ -30,7 +36,7 @@ const AppPage = (props) => {
 }
 
 AppPage.propTypes = {
-  profile: PropTypes.shape({}).isRequired,
+  authenticated: PropTypes.bool.isRequired,
   approutes: PropTypes.node.isRequired,
   fetchCurrentUser: PropTypes.func.isRequired
 };
@@ -39,9 +45,8 @@ AppPage.defaultProps = {
 };
 
 function mapStateToProps(state) {
-  const { profile } = state;
   return {
-    profile
+    authenticated: state.session.authenticated
   };
 }
 

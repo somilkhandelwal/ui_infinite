@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SecuredRoute from './components/SecuredRoute';
 import FrontPage from './containers/FrontPage';
-import PageNotFound from './components/PagNotFound';
+import PageNotFound from './components/PageNotFound';
 import Landing from './containers/Landing';
 import LoginPage from './containers/LoginPage';
 import AppPage from './containers/AppPage';
@@ -15,8 +15,7 @@ const routes = () => {
       <SecuredRoute exact path='/dashboard' component={FrontPage} />
       <SecuredRoute exact path='/dash_chart' component={Dash} />
       <SecuredRoute exact path='/kepler' component={Kepler} />
-
-      <Route component={PageNotFound} />
+      <SecuredRoute component={PageNotFound} />
     </Switch>
   );
 };
