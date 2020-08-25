@@ -1,6 +1,21 @@
 # ui_infinite
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Environment Variables
+| environment variable   | value                    |
+|------------------------|--------------------------|
+| REACT_APP_MAPBOX_TOKEN | *********(Map Box Token) |
+
+## Note
+First User email will be - "admin" <br/>
+Also Password is same as JWT_SECRET_KEY set in <https://github.com/somilkhandelwal/api-infinite/blob/master/README.md>
+
+## To Start Project in Dev Mode
+1. Set ENV Variables
+2. npm install
+3. Make sure api-infinite is running in port 3000 or else change proxy port in package.json
+4. npm start
+
 ## Available Scripts
 
 In the project directory, you can run:
